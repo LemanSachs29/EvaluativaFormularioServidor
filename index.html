@@ -9,17 +9,17 @@
 
 <body>
     <form>
-        <form action="/action_page.php">
+        <form action="php/procesar.php" method="POST">
             <fieldset>
-                <legend>Datos Personales</legend>
+                <h4>Datos Personales</h4>
                 <div>
                     <label for="nombreCompleto">Nombre y apellidos:</label><br>
-                <input type="text" id="nombreCompleto" name="nombreCompleto" ><br>
+                <input type="text" id="nombreCompleto" name="nombreCompleto"  ><br>
                 </div>
 
                 <div>
                     <label for="email">Correo electrónico:</label><br>
-                <input type="email" id="email" name="email" ><br>
+                <input type="email" id="email" name="email"  ><br>
                 </div>
 
                 <div>
@@ -28,66 +28,85 @@
                 </div>
 
                 <div>
-                    <label for="fecha_nac">Fecha de nacimiento:</label><br>
-                <input type="date" id="fecha_nac" name="fecha_nac" ><br>
+                    <label for="fecha-nac">Fecha de nacimiento:</label><br>
+                <input type="date" id="fecha-nac" name="fecha-nac" ><br>
                 </div>
 
                 <div>
                     <label for="genero">Genero:</label><br>
                     <div>
-                        <input type="radio" id="genero_masc" name="genero" value="masculino"/>
+                        <input type="radio" id="genero-masc" name="genero" value="masculino"/>
                         <label for="genero">Masculino</label>
                     </div>
                     <div>
-                        <input type="radio" id="genero_fem" name="genero" value="femenino"/>
+                        <input type="radio" id="genero-fem" name="genero" value="femenino"/>
                         <label for="genero">Femenino</label>
                     </div>
                 </div>
 
             </fieldset>
             <fieldset>
-                <legend>Información del Evento:</legend>
+                <h4>Información del Evento:</h4>
 
                 <div>
-                    <label for="fecha_evento">Fecha del evento:</label><br>
-                    <input type="date" id="fecha_evento" name="fecha_evento"><br>
+                    <label for="fecha-evento">Fecha del evento:</label><br>
+                    <input type="date" id="fecha-evento" name="fecha-evento"  ="test"><br>
                 </div>
                 <div>
-                    <label for="tipo_entrada">Tipo de entrada:</label><br>
-                    <select name="tipos_entrada" id="tipo_entrada" form="tipos_entrada">
+                    <label for="tipo-entrada">Tipo de entrada:</label><br>
+                    <select name="tipos-entrada" id="tipo-entrada" form="tipos-entrada">
                         <option value="general">General</option>
                         <option value="vip">VIP</option>
                         <option value="estudiante">Estudiante</option>
                     </select>
                 </div>
                 <div>
-                    <label for="preferencias_comida">Preferencias de comida:</label>
+                    <label for="preferencias-comida">Preferencias de comida:</label>
                     <input type="checkbox" name="pref1" id="pref1" value="vegetariano">
                     <label for="pref1">Vegetariano</label>
                     <input type="checkbox" name="pref2" id="pref2" value="vegano">
                     <label for="pref2">Vegano</label>
-                    <input type="checkbox" name="pref3" id="pref3" value="sin_gluten">
+                    <input type="checkbox" name="pref3" id="pref3" value="sin-gluten">
                     <label for="pref3">Sin gluten</label>
-                    <input type="checkbox" name="pref4" id="pref4" value="sin_preferencias">
+                    <input type="checkbox" name="pref4" id="pref4" value="sin-preferencias">
                     <label for="pref4">Sin preferencias</label>
                 </div>
             </fieldset>
             <fieldset>
-                <legend>Información de acceso</legend>
+                <h4>Información de acceso</h4>
                 <div>
-                    <label for="usuario">Nombre de Usuario:</label>
-                    <input type="text" for="usuario" id="usuario" >
+                    <label for="usuario">Nombre de Usuario:</label><br>
+                    <input type="text" for="usuario" id="usuario"  ><br>
                 </div>
                 <div>
-                    <label for="contrasenia">Contraseña:</label>
-                    <input type="password" for="contrasenia" id="contrasenia" >
+                    <label for="contrasenia">Contraseña:</label><br>
+                    <input type="password" for="contrasenia" id="contrasenia"  ="test"><br>
                 </div>
                 <div>
-                    <label for="contrasenia_confirm">Confirmar contraseña:</label>
-                    <input type="password" for="contrasenia_confirm" id="contrasenia_confirm" >
+                    <label for="contrasenia-confirm">Confirmar contraseña:</label><br>
+                    <input type="password" for="contrasenia-confirm" id="contrasenia-confirm"  ="test"><br>
                     <label></label>
                 </div>
             </fieldset>
+            <fieldset>
+                <input type="checkbox" id="noti-email" name="noti-email" value="noti-email">
+                <label for="noti-email"> ¿Desea recibir notificaciones por correo electrónico?</label><br>
+                <input type="checkbox" id="terms-condi" name="terms-condi" value="terms-condi"  ="test">
+                <label for="terms-condi">¿Acepta los términos y condiciones?</label><br>
+            </fieldset>
+            <fieldset>
+                <h4>Encuesta adicional</h4>
+                <div>
+                    <label for="calificacion">Valore su experiencia en eventos anteriores:</label><br>
+                    <span>1<input type="range" name="calificacion" id="calificacion" min="0" max="10">10</span><br>
+
+                    <label for="opinion-personal">Opinión personal</label><br>
+                    <textarea name="opinion-personal" id="opinion-personal"></textarea><br>
+                </div>
+            </fieldset>
+            <div>
+                <input type="submit" value="Enviar">
+            </div>
         </form>
     </form>
 </body>
