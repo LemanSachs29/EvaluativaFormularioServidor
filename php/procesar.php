@@ -19,6 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               !empty($_POST['contrasenia-confirm']) && 
               !empty($_POST['terms-condi'])){
 
+        if(!isset($_POST['genero'])){
+            $_POST['genero'] = "indefinido";
+        }
         if(!isset($_POST['pref1-vegetariano'])){
             $_POST['pref1-vegetariano'] = "no marcado";
         }
@@ -71,12 +74,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Aceptación de Términos y Condiciones: $termsCondi<br>";
         echo "Calificación: $calificacion<br>";
         echo "Opinión Personal: $opinionPersonal<br>";
-    } else {
-        echo "Por favor, complete todos los campos obligatorios.";
-        var_dump($_POST);
+    }else{
+        if (!isset($_POST['nombre-completo']) || empty($_POST['nombre-completo'])) {
+            echo "Debe completar el campo Nombre.<br>";
+        }
+        if (!isset($_POST['email']) || empty($_POST['email'])) {
+            echo "Debe completar el campo Correo Electrónico.<br>";
+        }
+        if (!isset($_POST['fecha-evento']) || empty($_POST['fecha-evento'])) {
+            echo "Debe completar la Fecha del Evento.<br>";
+        }
+        if (!isset($_POST['tipo-entrada']) || empty($_POST['tipo-entrada'])) {
+            echo "Debe seleccionar el Tipo de Entrada.<br>";
+        }
+        if (!isset($_POST['usuario']) || empty($_POST['usuario'])) {
+            echo "Debe completar el campo Nombre de Usuario.<br>";
+        }
+        if (!isset($_POST['contrasenia']) || empty($_POST['contrasenia'])) {
+            echo "Debe completar el campo Contraseña.<br>";
+        }
+        if (!isset($_POST['contrasenia-confirm']) || empty($_POST['contrasenia-confirm'])) {
+            echo "Debe confirmar la Contraseña.<br>";
+        }
+        if (!isset($_POST['terms-condi']) || empty($_POST['terms-condi'])) {
+            echo "Debe aceptar los Términos y Condiciones.<br>";
+        }
     }
+    
 }else{
-    echo "Formulario enviado con otro método."
+    echo "Formulario enviado con otro método.";
 }
 
 ?>
