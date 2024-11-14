@@ -1,7 +1,8 @@
 <?php
-
+//Verificamos que la llamada sea post
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+    //Verificamos que todos los campos OBLIGATORIOS estén completos y no vengan vacíos
     if (
         isset(
         $_POST['nombre-completo'],
@@ -23,26 +24,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         !empty($_POST['terms-condi'])
     ) {
 
-        if (!isset($_POST['genero'])) {
-            $_POST['genero'] = "indefinido";
-        }
-        if (!isset($_POST['pref1-vegetariano'])) {
-            $_POST['pref1-vegetariano'] = "no marcado";
-        }
-        if (!isset($_POST['pref2-vegano'])) {
-            $_POST['pref2-vegano'] = "no marcado";
-        }
-        if (!isset($_POST['pref3-sin-gluten'])) {
-            $_POST['pref3-sin-gluten'] = "no marcado";
-        }
-        if (!isset($_POST['pref4-sin-preferencias'])) {
-            $_POST['pref4-sin-preferencias'] = "no marcado";
-        }
-        if (!isset($_POST['noti-email'])) {
-            $_POST['noti-email'] = "rechazado";
-        }
-
+        //Solo continuamos con el resto del procesamiento si ambas contraseñas son iguales
         if ($_POST['contrasenia'] == $_POST['contrasenia-confirm']) {
+
+            //Asignamos valores genéricos a los campos OPCIONALES que tengan valor undefined en $_POST
+            if (!isset($_POST['genero'])) {
+                $_POST['genero'] = "indefinido";
+            }
+            if (!isset($_POST['pref1-vegetariano'])) {
+                $_POST['pref1-vegetariano'] = "no marcado";
+            }
+            if (!isset($_POST['pref2-vegano'])) {
+                $_POST['pref2-vegano'] = "no marcado";
+            }
+            if (!isset($_POST['pref3-sin-gluten'])) {
+                $_POST['pref3-sin-gluten'] = "no marcado";
+            }
+            if (!isset($_POST['pref4-sin-preferencias'])) {
+                $_POST['pref4-sin-preferencias'] = "no marcado";
+            }
+            if (!isset($_POST['noti-email'])) {
+                $_POST['noti-email'] = "rechazado";
+            }
+
+
+            //Asignamos los datos del formulario a variables php
             $nombreCompleto = htmlspecialchars($_POST['nombre-completo']);
             $genero = htmlspecialchars($_POST['genero']);
             $tel = htmlspecialchars($_POST['tel']);
@@ -62,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $calificacion = htmlspecialchars($_POST['calificacion']);
             $opinionPersonal = htmlspecialchars($_POST['opinion-personal']);
 
+            //Pintamos por pantalla los datos del formulario
             echo "Nombre Completo: $nombreCompleto<br>";
             echo "Género: $genero<br>";
             echo "Teléfono: $tel<br>";
@@ -80,9 +87,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Calificación: $calificacion<br>";
             echo "Opinión Personal: $opinionPersonal<br>";
         } else {
+
+            //Si las contraseñas no son iguales mostramos el siguiente mensaje
             echo "Las contraseñas no coinciden";
         }
 
+        //Si alguno de los campos obligatorios no está completo mandamos un mensaje concreto y claro
     } else {
         if (!isset($_POST['nombre-completo']) || empty($_POST['nombre-completo'])) {
             echo "Debe completar el campo Nombre.<br>";
@@ -110,8 +120,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
+    //Si el formulario no está mandado con el método post, mostramos un mensaje que lo indique
 } else {
-    echo "Formulario enviado con otro método.";
+    echo "El formulario debe estar enviado con el método post";
 }
 
 ?>
