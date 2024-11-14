@@ -74,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Aceptación de Términos y Condiciones: $termsCondi<br>";
         echo "Calificación: $calificacion<br>";
         echo "Opinión Personal: $opinionPersonal<br>";
+        
     }else{
         if (!isset($_POST['nombre-completo']) || empty($_POST['nombre-completo'])) {
             echo "Debe completar el campo Nombre.<br>";
