@@ -1,4 +1,9 @@
-[![Logotipo de PHP](www.wikipedia.com "Logotipo de PHP")](https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/200px-PHP-logo.svg.png "Logotipo de PHP")
+<div style="text-align: center;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" alt="Logo de PHP" style="width: 250px;">
+</div>
+
+
+
 # Validación de un formulario en php
 
 Este es un proyecto web sencillo que incluye HTML, Bootstrap, JavaScript y PHP.  Es una actividad de clase donde el objetivo era "Construir un formulario HTML para registrar asistentes a un evento y crear los
